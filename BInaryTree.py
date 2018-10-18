@@ -101,61 +101,6 @@ def insert(t, z):
 
 
 
-def delete(t, del_val):
-    if not t:
-        return None
-    root = t
-    t_p = None
-    while(t):
-        if t.val == del_val:
-            break
-        if t.val > del_val:
-            t_p = t
-            t = t.leftchild
-        else:
-            t_p = t
-            t = t.rightchild
-
-    if not t:
-        print("no such val to delete")
-        return None
-    print("find t, t.val=", t.val)
-
-    if not t.leftchild and not t.rightchild:
-        print("case 1")
-        if t_p.val < t.val:
-            t_p.rightchild = None
-        else:
-            t_p.leftchild = None
-        return root
-
-    if not t.leftchild and t.rightchild:
-        print("case 2.a")
-        if t_p.val < t.val:
-            t_p.rightchild = t.rightchild
-        else:
-            t_p.leftchild = t.rightchild
-        return root
-
-    if not t.rightchild and t.leftchild:
-        print("case 2.b")
-        if t_p.val < t.val:
-            t_p.rightchild = t.leftchild
-        else:
-            t_p.leftchild = t.leftchild
-        return root
-
-#     t has both child, so first had to find t's next
-    search_next = t.rightchild
-    while(search_next.leftchild):
-        search_next = search_next.leftchild
-    print("find replace, replace val:", search_next.val)
-    # 没有父亲节点，实在太难进行计算了
-
-
-
-    return root
-
 
 
 
